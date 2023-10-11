@@ -55,6 +55,7 @@ export default function PlaygroundPage() {
         />
       </div>
       <div className="hidden h-full flex-col md:flex">
+        {/* Navbar */}
         <div className="container flex flex-col items-start justify-between space-y-2 py-4 sm:flex-row sm:items-center sm:space-y-0 md:h-16">
           <h2 className="text-lg font-semibold">Playground</h2>
           <div className="ml-auto flex w-full space-x-2 sm:justify-end">
@@ -68,9 +69,13 @@ export default function PlaygroundPage() {
           </div>
         </div>
         <Separator />
+
+        {/* Main content */}
         <Tabs defaultValue="complete" className="flex-1">
           <div className="container h-full py-6">
             <div className="grid h-full items-stretch gap-6 md:grid-cols-[1fr_200px]">
+              
+              {/* Sidebar */}
               <div className="hidden flex-col space-y-4 sm:flex md:order-2">
                 <div className="grid gap-2">
                   <HoverCard openDelay={200}>
@@ -254,6 +259,8 @@ export default function PlaygroundPage() {
                 <MaxLengthSelector defaultValue={[256]} />
                 <TopPSelector defaultValue={[0.9]} />
               </div>
+
+              {/* Content pane */}
               <div className="md:order-1">
                 <TabsContent value="complete" className="mt-0 border-0 p-0">
                   <div className="flex h-full flex-col space-y-4">
