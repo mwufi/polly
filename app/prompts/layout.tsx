@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
+import SidebarNav from "./components/SidebarNav";
 
 export default function Layout({ children }) {
   const prompts = [
@@ -55,13 +56,7 @@ export default function Layout({ children }) {
               <Button>New Chat</Button>
             </div>
 
-            {prompts.map((prompt) => (
-              <li key={prompt.slug} className="my-2">
-                <Link href={`/prompts/${prompt.slug}`} className="hover:text-pink-600 hover:bg-gray-100 p-2" passHref>
-                  {prompt.short_prompt}
-                </Link>
-              </li>
-            ))}
+            <SidebarNav items={prompts.map(prompt => ({ href: `/prompts/${prompt.slug}`, title: `${prompt.short_prompt}` }))} />
           </ScrollArea>
         </ul>
         {children}
